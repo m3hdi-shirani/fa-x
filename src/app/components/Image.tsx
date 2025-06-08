@@ -5,21 +5,33 @@ import { Image } from "@imagekit/next";
 
 interface ImageProps {
   src: string;
-  width: number;
-  height: number;
+  w?: number;
+  h?: number;
   alt: string;
   className?: string;
+  tr?: boolean;
 }
 
-const KIImage = ({ src, width, height, alt, className }: ImageProps) => {
+const KIImage = ({ src, w, h, alt, className, tr }: ImageProps) => {
   const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
 
   return (
     <Image
+      {...(tr
+        ? {
+            transformation: [
+              {
+                width: `${w}`,
+                height: `${h}`,
+              },
+            ],
+          }
+        : {
+            width: w,
+            height: h,
+          })}
       urlEndpoint={urlEndpoint}
       src={src}
-      width={width}
-      height={height}
       alt={alt}
       className={className}
     />

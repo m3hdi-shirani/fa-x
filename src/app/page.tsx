@@ -1,7 +1,5 @@
-import KIImage from "./components/Image";
-
 const Homepage = () => {
-  return <KIImage src="general/post.jpg" alt="پست تستی" />;
+  return <span>صفحه اصلی</span>;
 };
 
 export default Homepage;
