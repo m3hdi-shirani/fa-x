@@ -1,7 +1,7 @@
-const Homepage = () => {
-  return (
-    <div className=''>صفحه اصلی</div>
-  )
-}
+import KIImage from "./components/Image";
 
-export default Homepage
+const Homepage = () => {
+  return <KIImage src="general/post.jpg" alt="پست تستی" />;
+};
+
+export default Homepage;
