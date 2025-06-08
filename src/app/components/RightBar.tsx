@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Image from "@/app/components/Image";
 
 const menuList = [
   {
@@ -66,7 +66,7 @@ const RightBar = () => {
       <div className="flex flex-col gap-4 text-lg items-center xxl:items-start">
         {/* Logo */}
         <Link href="/" className="p-2">
-          <Image src={"icons/logo.svg"} alt="لوگوی X" height={24} width={24} />
+          <Image src={"icons/logo.svg"} alt="لوگوی X" h={24} w={24} />
         </Link>
         {/* List Menu */}
         <div className="flex flex-col gap-4">
@@ -76,12 +76,7 @@ const RightBar = () => {
               href={item.link}
               key={item.id}
             >
-              <Image
-                src={`icons/${item.icon}`}
-                alt={item.name}
-                width={24}
-                height={24}
-              />
+              <Image src={`icons/${item.icon}`} alt={item.name} w={24} h={24} />
               <span className="hidden xxl:inline">{item.name}</span>
             </Link>
           ))}
@@ -90,7 +85,7 @@ const RightBar = () => {
             href="/"
             className="xxl:hidden bg-white text-black rounded-full w-12 h-12 flex item-center justify-center"
           >
-            <Image src="icons/post.svg" alt="پست جدید" width={24} height={24} />
+            <Image src="icons/post.svg" alt="پست جدید" w={24} h={24} />
           </Link>
           <Link
             href="/"
@@ -104,7 +99,13 @@ const RightBar = () => {
       <div className="flex items-center justify-center">
         <div className="flex items-center gap-2">
           <div className="relative h-10 w-10 rounded-full overflow-hidden">
-            <Image src="/general/avatar.png" alt="mehdi shirani" fill />
+            <Image
+              src="/general/avatar.png"
+              alt="mehdi shirani"
+              w={100}
+              h={100}
+              tr
+            />
           </div>
           <div className="hidden xxl:flex flex-col">
             <span className="font-bold">Mehdi Shirani</span>

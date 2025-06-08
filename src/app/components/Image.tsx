@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Image } from "@imagekit/next";
+import { Image as IKImage } from "@imagekit/next";
 
 interface ImageProps {
   src: string;
@@ -12,11 +12,11 @@ interface ImageProps {
   tr?: boolean;
 }
 
-const KIImage = ({ src, w, h, alt, className, tr }: ImageProps) => {
+const Image = ({ src, w, h, alt, className, tr }: ImageProps) => {
   const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
 
   return (
-    <Image
+    <IKImage
       {...(tr
         ? {
             transformation: [
@@ -34,8 +34,10 @@ const KIImage = ({ src, w, h, alt, className, tr }: ImageProps) => {
       src={src}
       alt={alt}
       className={className}
+      width={w}
+      height={h}
     />
   );
 };
 
-export default KIImage;
+export default Image;
