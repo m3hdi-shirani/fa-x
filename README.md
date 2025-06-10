@@ -1,17 +1,31 @@
-## Getting Started
+# 🐦 Fa-X UI | توییتر فارسی با Next.js
 
-First, run the development server:
+یک رابط کاربری ساده و مدرن برای نسخه‌ی فارسی توییتر، ساخته‌شده با استفاده از **Next.js 15**، **React 19** و **Tailwind CSS**. این پروژه صرفاً یک نمونه‌ی آموزشی و آزمایشی از رابط کاربری است و شامل بخش‌های بک‌اند نمی‌باشد.
+
+---
+
+## 🚀 ابزارها و تکنولوژی‌ها
+
+| ابزار                                         | توضیح                                                          |
+| --------------------------------------------- | -------------------------------------------------------------- |
+| [Next.js 15](https://nextjs.org/)             | فریم‌ورک React برای ساخت اپلیکیشن‌های SSR و SPA                |
+| [React 19](https://react.dev/)                | کتابخانه‌ی اصلی رابط کاربری                                    |
+| [Tailwind CSS 3](https://tailwindcss.com/)    | فریم‌ورک CSS برای طراحی سریع و واکنش‌گرا                       |
+| [TypeScript](https://www.typescriptlang.org/) | زبان تایپ‌دار برای توسعه‌ی امن‌تر                              |
+| [ImageKit](https://imagekit.io/)              | سرویس CDN و آپلود تصاویر (با استفاده از پکیج `@imagekit/next`) |
+| [ESLint](https://eslint.org/)                 | بررسی کیفیت کد و رعایت استانداردها                             |
+
+---
+
+## 🛠️ نصب و راه‌اندازی
 
 ```bash
+git clone https://github.com/your-username/fa-x-ui.git
+cd fa-x-ui
+
+# نصب پکیج‌ها
+npm install
+
+# اجرای پروژه در حالت توسعه
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.

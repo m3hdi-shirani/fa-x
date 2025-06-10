@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Image as IKImage } from "@imagekit/next";
 
 interface ImageProps {

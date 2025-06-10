@@ -2,8 +2,33 @@ import React from "react";
 import Image from "./Image";
 import PostInfo from "./PostInfo";
 import PostInteraction from "./PostInteraction";
+import { imagekit } from "@/utils";
+import Video from "./Video";
 
-const Post = () => {
+interface FileDetailsResponse {
+  width: number;
+  height: number;
+  filePath: string;
+  url: string;
+  fileType: string;
+  customMetadata?: {
+    sensitive: boolean;
+  };
+}
+
+const Post = async () => {
+  const getFileDetails = (fildId: string): Promise<FileDetailsResponse> => {
+    return new Promise((resolve, reject) => {
+      imagekit.getFileDetails(fildId, function (error, result) {
+        if (error) {
+          reject(error);
+        } else resolve(result as FileDetailsResponse);
+      });
+    });
+  };
+
+  const fileDetails = await getFileDetails("6846ed2db13a102537dfb7a5");
+
   return (
     <div className="p-4 border-y-[1px] border-borderGray">
       {/* Post Type */}
@@ -52,7 +77,20 @@ const Post = () => {
             کشید که کوچک و کوچکتر شد صبح توی جعبه مداد رنگی جای خالی او با هیچ
             رنگی پر نشد، به یاد هم باشیم شاید فردا ما هم در کنار هم نباشیم…
           </p>
-          <Image src="general/post.jpg" alt="" w={600} h={600} />
+          {fileDetails && fileDetails.fileType === "image" ? (
+            <Image
+              src={fileDetails.filePath}
+              alt=""
+              w={fileDetails.width}
+              h={fileDetails.height}
+              className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}
+            />
+          ) : (
+            <Video
+              src={fileDetails.filePath}
+              className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}
+            />
+          )}
           <PostInteraction />
         </div>
       </div>
